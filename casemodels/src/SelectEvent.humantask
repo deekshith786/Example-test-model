@@ -1,0 +1,38 @@
+<humantask>
+    <cafienne:implementation name="SelectEvent" xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <output id="_Tk9I_Event" name="Event"/>
+        <task-model>{
+    "schema": {
+        "type": "object",
+        "properties": {
+            "Event": {
+                "title": "Enter your Event Details",
+                "type": "object",
+                "properties": {                      
+                  "eventName": {
+                    "title": "Enter your name of the Event",
+                    "type": "string"
+                  },
+                  "eventId": {
+                    "title": "Enter your EventId ",
+                    "type": "string"
+                  },
+                  "eventDate": {
+                    "title": "Date of Event ",
+                    "type": "string"
+                  },
+                  "eventThemme": {
+                    "title": "Theme of the event",
+                    "type": "string"
+                  },
+                  "eventDescription": {
+                    "title": "Describe your event ",
+                    "type": "string"
+                  }                        
+               }               
+            }            
+        }
+    }
+}</task-model>
+    </cafienne:implementation>
+</humantask>

@@ -1,0 +1,7 @@
+<caseFileItemDefinition name="event" definitionType="http://www.omg.org/spec/CMMN/DefinitionType/Unspecified">
+    <property name="eventName" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+    <property name="eventDate" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+    <property name="eventTheme" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+    <property name="eventId" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+    <property name="eventDescription" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+</caseFileItemDefinition>

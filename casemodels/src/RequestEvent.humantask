@@ -1,0 +1,76 @@
+<humantask>
+    <cafienne:implementation name="RequestEvent" xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_zafW_Team" name="Team"/>
+        <input id="_d6eH_Event" name="Event"/>
+        <output id="_HTDN_HodPermission" name="HodPermission"/>
+        <task-model>{
+    "schema": {
+        "type": "object",
+        "properties": {
+            "Team": {
+                "title": "Team Details",
+                "type": "object",
+                "properties": {                      
+                  "teamName": {
+                    "title": "Name of the Team",
+                    "type": "string"
+                  },
+                  "teamId": {
+                    "title": "Team-Id",
+                    "type": "string"
+                  },
+                  "NumberOfMembers": {
+                    "title": "Participants in the team Team",
+                    "type": "number"
+                  },
+                  "teamHeadName": {
+                    "title": "Team representatiove",
+                    "type": "string"
+                  }                        
+               }               
+            },
+            "Event": {
+                "title": "Event Details",
+                "type": "object",
+                "properties": {                      
+                  "eventName": {
+                    "title": "Name of the Event",
+                    "type": "string"
+                  },
+                  "eventId": {
+                    "title": "EventId ",
+                    "type": "string"
+                  },
+                  "eventDate": {
+                    "title": "Date of Event ",
+                    "type": "string"
+                  },
+                  "eventThemme": {
+                    "title": "Theme of the event",
+                    "type": "string"
+                  },
+                  "eventDescription": {
+                    "title": "Event Describtion ",
+                    "type": "string"
+                  },
+                   "HodPermission":{
+               		 "title":"Request Permission",
+                      "type": "object",
+                      "properties": {                      
+                        "HodAccepted": {
+                          "title": "Hod Accepted the event",
+                          "type": "boolean"
+                        },
+                        "HodComments":{
+                           "title": "Comments on the event",
+                          "type": "string"
+                        }
+                      }
+              		}
+               	  }             
+            	}
+ 	   		}
+		}
+}</task-model>
+    </cafienne:implementation>
+</humantask>

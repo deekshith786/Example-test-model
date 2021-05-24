@@ -1,0 +1,30 @@
+<humantask>
+    <cafienne:implementation name="ChooseVenue" xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <output id="_47wo_VenueSelection" name="VenueSelection"/>
+        <task-model>{
+    "schema": {
+        "type": "object",
+        "properties": {
+            "VenueSelection": {
+                "title": "Venue Selection",
+                "type": "object",
+                "properties": {                      
+                  "venueName": {
+                    "title": "Name of the venue",
+                    "type": "string"
+                  },
+                  "venueTime": {
+                    "title": "Provide the time at which you want the venue ",
+                    "type": "string"
+                  },
+                  "venueBlock": {
+                    "title": "Block number of the venue",
+                    "type": "number"
+                  }                    
+               }               
+            }            
+        }
+    }
+}</task-model>
+    </cafienne:implementation>
+</humantask>

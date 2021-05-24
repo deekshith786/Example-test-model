@@ -1,0 +1,205 @@
+<case id="Hackathon.case" name="Hackathon" expressionLanguage="spel" guid="_lYlsz">
+    <documentation textFormat="text/plain">
+        <text>
+            <![CDATA[Events in college (fest)]]>
+        </text>
+    </documentation>
+    <caseFileModel>
+        <caseFileItem id="_lYlsz_3" name="Team" multiplicity="ExactlyOne" definitionRef="team.cfid"/>
+        <caseFileItem id="_lYlsz_11" name="Event" multiplicity="ExactlyOne" definitionRef="event.cfid">
+            <children>
+                <caseFileItem id="_lYlsz_15" name="HodPermission" multiplicity="ExactlyOne" definitionRef="hodpermission.cfid"/>
+            </children>
+        </caseFileItem>
+        <caseFileItem id="_lYlsz_35" name="Venue" multiplicity="ExactlyOne" definitionRef="venue.cfid">
+            <children>
+                <caseFileItem id="_lYlsz_42" name="CouchPermission" multiplicity="ExactlyOne" definitionRef="couchpermission.cfid"/>
+            </children>
+        </caseFileItem>
+    </caseFileModel>
+    <casePlanModel id="cm__lYlsz_0" name="Hackathon" autoComplete="true">
+        <planItem id="pi_ht__lYlsz_0" name="Team Details" definitionRef="ht__lYlsz_0"/>
+        <planItem id="pi_ht__lYlsz_1" name="Select Event" definitionRef="ht__lYlsz_1">
+            <entryCriterion id="_lYlsz_7" name="EntryCriterion_0" sentryRef="crit__lYlsz_0"/>
+            <entryCriterion id="_lYlsz_30" name="EntryCriterion_4" sentryRef="crit__lYlsz_4"/>
+            <entryCriterion id="_lYlsz_56" name="EntryCriterion_9" sentryRef="crit__lYlsz_9"/>
+        </planItem>
+        <planItem id="pi__lYlsz_60" name="Event Selection" definitionRef="_lYlsz_60">
+            <entryCriterion id="_lYlsz_9" name="EntryCriterion_1" sentryRef="crit__lYlsz_1"/>
+        </planItem>
+        <sentry id="crit__lYlsz_0">
+            <planItemOnPart id="_lYlsz_8" sourceRef="pi_ht__lYlsz_0">
+                <standardEvent>complete</standardEvent>
+            </planItemOnPart>
+        </sentry>
+        <sentry id="crit__lYlsz_4">
+            <planItemOnPart id="_lYlsz_31" sourceRef="pi_ms__lYlsz_1">
+                <standardEvent>occur</standardEvent>
+            </planItemOnPart>
+        </sentry>
+        <sentry id="crit__lYlsz_9">
+            <planItemOnPart id="_lYlsz_57" sourceRef="pi_ms__lYlsz_3">
+                <standardEvent>occur</standardEvent>
+            </planItemOnPart>
+        </sentry>
+        <sentry id="crit__lYlsz_1">
+            <planItemOnPart id="_lYlsz_10" sourceRef="pi_ht__lYlsz_1">
+                <standardEvent>complete</standardEvent>
+            </planItemOnPart>
+        </sentry>
+        <humanTask id="ht__lYlsz_0" name="Team Details" isBlocking="true">
+            <outputs id="_lYlsz_6" name="Team" bindingRef="_lYlsz_3"/>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="TeamDetails.humantask">
+                    <parameterMapping id="_lYlsz_4" sourceRef="_39MA_Team" targetRef="_lYlsz_6"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <humanTask id="ht__lYlsz_1" name="Select Event" isBlocking="true">
+            <outputs id="_lYlsz_14" name="Event" bindingRef="_lYlsz_11"/>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="SelectEvent.humantask">
+                    <parameterMapping id="_lYlsz_12" sourceRef="_Tk9I_Event" targetRef="_lYlsz_14"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <humanTask id="ht__lYlsz_2" name="Request Event" isBlocking="true" performerRef="_lYlsz_63">
+            <inputs id="_lYlsz_20" name="Event" bindingRef="_lYlsz_11"/>
+            <inputs id="_lYlsz_21" name="Team" bindingRef="_lYlsz_3"/>
+            <outputs id="_lYlsz_22" name="Event" bindingRef="_lYlsz_11"/>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="RequestEvent.humantask">
+                    <parameterMapping id="_lYlsz_16" sourceRef="_lYlsz_21" targetRef="_zafW_Team"/>
+                    <parameterMapping id="_lYlsz_17" sourceRef="_lYlsz_20" targetRef="_d6eH_Event"/>
+                    <parameterMapping id="_lYlsz_18" sourceRef="_HTDN_HodPermission" targetRef="_lYlsz_22"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <humanTask id="ht__lYlsz_3" name="Choose Venue" isBlocking="true">
+            <outputs id="_lYlsz_38" name="Venue" bindingRef="_lYlsz_35"/>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="ChooseVenue.humantask">
+                    <parameterMapping id="_lYlsz_36" sourceRef="_47wo_VenueSelection" targetRef="_lYlsz_38"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <humanTask id="ht__lYlsz_4" name="Request Venue" isBlocking="true" performerRef="_lYlsz_64">
+            <inputs id="_lYlsz_45" name="Venue" bindingRef="_lYlsz_35"/>
+            <outputs id="_lYlsz_46" name="Venue" bindingRef="_lYlsz_35"/>
+            <extensionElements mustUnderstand="false">
+                <cafienne:implementation xmlns:cafienne="org.cafienne" humanTaskRef="RequestVenue.humantask">
+                    <parameterMapping id="_lYlsz_39" sourceRef="_lYlsz_45" targetRef="_Pw6V_VenueDetails"/>
+                    <parameterMapping id="_lYlsz_43" sourceRef="_adfK_couchApproval" targetRef="_lYlsz_46"/>
+                </cafienne:implementation>
+            </extensionElements>
+        </humanTask>
+        <milestone id="ms__lYlsz_0" name="Hod Accepted "/>
+        <milestone id="ms__lYlsz_1" name="Hod Rejected "/>
+        <milestone id="ms__lYlsz_2" name="Couch Accepted "/>
+        <milestone id="ms__lYlsz_3" name="Couch Rejected"/>
+        <milestone id="ms__lYlsz_4" name="Completed"/>
+        <stage id="_lYlsz_60" name="Event Selection" autoComplete="true">
+            <planItem id="pi_ht__lYlsz_2" name="Request Event" definitionRef="ht__lYlsz_2"/>
+            <planItem id="pi_ms__lYlsz_0" name="Hod Accepted " definitionRef="ms__lYlsz_0">
+                <entryCriterion id="_lYlsz_13" name="EntryCriterion_2" sentryRef="crit__lYlsz_2"/>
+            </planItem>
+            <planItem id="pi_ms__lYlsz_1" name="Hod Rejected " definitionRef="ms__lYlsz_1">
+                <entryCriterion id="_lYlsz_26" name="EntryCriterion_3" sentryRef="crit__lYlsz_3"/>
+            </planItem>
+            <planItem id="pi_ms__lYlsz_2" name="Couch Accepted " definitionRef="ms__lYlsz_2">
+                <entryCriterion id="_lYlsz_48" name="EntryCriterion_7" sentryRef="crit__lYlsz_7"/>
+            </planItem>
+            <planItem id="pi_ms__lYlsz_3" name="Couch Rejected" definitionRef="ms__lYlsz_3">
+                <entryCriterion id="_lYlsz_52" name="EntryCriterion_8" sentryRef="crit__lYlsz_8"/>
+            </planItem>
+            <planItem id="pi_ms__lYlsz_4" name="Completed" definitionRef="ms__lYlsz_4">
+                <entryCriterion id="_lYlsz_62" name="EntryCriterion_11" sentryRef="crit__lYlsz_11"/>
+            </planItem>
+            <planItem id="pi_ht__lYlsz_3" name="Choose Venue" definitionRef="ht__lYlsz_3">
+                <entryCriterion id="_lYlsz_33" name="EntryCriterion_5" sentryRef="crit__lYlsz_5"/>
+            </planItem>
+            <planItem id="pi_ht__lYlsz_4" name="Request Venue" definitionRef="ht__lYlsz_4">
+                <entryCriterion id="_lYlsz_40" name="EntryCriterion_6" sentryRef="crit__lYlsz_6"/>
+            </planItem>
+            <sentry id="crit__lYlsz_2">
+                <ifPart id="_lYlsz_23" contextRef="_lYlsz_11">
+                    <condition id="_lYlsz_24">
+                        <body>
+                            <![CDATA[Event.HodPermission.HodAccepted==true]]>
+                        </body>
+                    </condition>
+                </ifPart>
+                <planItemOnPart id="_lYlsz_19" sourceRef="pi_ht__lYlsz_2">
+                    <standardEvent>complete</standardEvent>
+                </planItemOnPart>
+            </sentry>
+            <sentry id="crit__lYlsz_3">
+                <ifPart id="_lYlsz_28" contextRef="_lYlsz_11">
+                    <condition id="_lYlsz_29">
+                        <body>
+                            <![CDATA[Event.HodPermission.HodAccepted!=true]]>
+                        </body>
+                    </condition>
+                </ifPart>
+                <planItemOnPart id="_lYlsz_27" sourceRef="pi_ht__lYlsz_2">
+                    <standardEvent>complete</standardEvent>
+                </planItemOnPart>
+            </sentry>
+            <sentry id="crit__lYlsz_7">
+                <ifPart id="_lYlsz_50">
+                    <condition id="_lYlsz_51">
+                        <body>
+                            <![CDATA[Venue.CouchPermission.couchApproval==true]]>
+                        </body>
+                    </condition>
+                </ifPart>
+                <planItemOnPart id="_lYlsz_49" sourceRef="pi_ht__lYlsz_4">
+                    <standardEvent>complete</standardEvent>
+                </planItemOnPart>
+            </sentry>
+            <sentry id="crit__lYlsz_8">
+                <ifPart id="_lYlsz_54" contextRef="_lYlsz_35">
+                    <condition id="_lYlsz_55">
+                        <body>
+                            <![CDATA[Venue.CouchPermission.couchApproval!=true]]>
+                        </body>
+                    </condition>
+                </ifPart>
+                <planItemOnPart id="_lYlsz_53" sourceRef="pi_ht__lYlsz_4">
+                    <standardEvent>complete</standardEvent>
+                </planItemOnPart>
+            </sentry>
+            <sentry id="crit__lYlsz_11">
+                <planItemOnPart id="_lYlsz_58" sourceRef="pi_ms__lYlsz_2">
+                    <standardEvent>occur</standardEvent>
+                </planItemOnPart>
+            </sentry>
+            <sentry id="crit__lYlsz_5">
+                <planItemOnPart id="_lYlsz_34" sourceRef="pi_ms__lYlsz_0">
+                    <standardEvent>occur</standardEvent>
+                </planItemOnPart>
+            </sentry>
+            <sentry id="crit__lYlsz_6">
+                <planItemOnPart id="_lYlsz_41" sourceRef="pi_ht__lYlsz_3">
+                    <standardEvent>complete</standardEvent>
+                </planItemOnPart>
+            </sentry>
+        </stage>
+    </casePlanModel>
+    <caseRoles>
+        <role id="_lYlsz_63" name="HOD">
+            <documentation textFormat="text/plain">
+                <text>
+                    <![CDATA[Provides permission for the event]]>
+                </text>
+            </documentation>
+        </role>
+        <role id="_lYlsz_64" name="Couch">
+            <documentation textFormat="text/plain">
+                <text>
+                    <![CDATA[Provides permission for the venue]]>
+                </text>
+            </documentation>
+        </role>
+    </caseRoles>
+</case>

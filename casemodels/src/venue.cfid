@@ -1,0 +1,5 @@
+<caseFileItemDefinition name="venue" definitionType="http://www.omg.org/spec/CMMN/DefinitionType/Unspecified">
+    <property name="venueName" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+    <property name="venueTime" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+    <property name="venueBlock" type="http://www.omg.org/spec/CMMN/PropertyType/integer"/>
+</caseFileItemDefinition>

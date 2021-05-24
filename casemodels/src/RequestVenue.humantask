@@ -1,0 +1,45 @@
+<humantask>
+    <cafienne:implementation name="RequestVenue" xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <input id="_Pw6V_VenueDetails" name="Venue Details"/>
+        <output id="_adfK_couchApproval" name="couch Approval"/>
+        <task-model>{
+    "schema": {
+        "type": "object",
+        "properties": {
+            "Venue Details": {
+                "title": "Venue Selected",
+                "type": "object",
+                "properties": {                      
+                  "venueName": {
+                    "title": "Name of the venue",
+                    "type": "string"
+                  },
+                  "venueTime": {
+                    "title": "Time slot for the venue",
+                    "type": "string"
+                  },
+                  "venueBlock": {
+                    "title": "Block number of the venue",
+                    "type": "number"
+                  }                    
+               }               
+            },
+           "couch Approval":{
+                 "title":"Request Couch Permission",
+                 "type": "object",
+                 "properties": {                      
+                   "couchApproval": {
+                     "title": "Couch Accepted the venue",
+                     "type": "boolean"
+                   },
+                   "couchComments":{
+                     "title": "Comments on the venue",
+                     "type": "string"
+                   }
+                }
+           	}
+        }
+    }
+}</task-model>
+    </cafienne:implementation>
+</humantask>

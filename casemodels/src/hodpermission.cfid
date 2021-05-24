@@ -1,0 +1,4 @@
+<caseFileItemDefinition name="hodpermission" definitionType="http://www.omg.org/spec/CMMN/DefinitionType/Unspecified">
+    <property name="HodAccepted" type="http://www.omg.org/spec/CMMN/PropertyType/boolean"/>
+    <property name="HodComments" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+</caseFileItemDefinition>

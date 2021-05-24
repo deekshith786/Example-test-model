@@ -1,0 +1,34 @@
+<humantask>
+    <cafienne:implementation name="TeamDetails" xmlns:cafienne="org.cafienne" class="org.cafienne.cmmn.definition.task.WorkflowTaskDefinition">
+        <output id="_39MA_Team" name="Team"/>
+        <task-model id="_BZO8G_0" name="TaskModel_0">{
+    "schema": {
+        "type": "object",
+        "properties": {
+            "Team": {
+                "title": "Enter your Team Details",
+                "type": "object",
+                "properties": {                      
+                  "teamName": {
+                    "title": "Enter your name of the Team",
+                    "type": "string"
+                  },
+                  "teamId": {
+                    "title": "Enter your Id of the Team ",
+                    "type": "string"
+                  },
+                  "NumberOfMembers": {
+                    "title": "Number of members in you Team",
+                    "type": "number"
+                  },
+                  "teamHeadName": {
+                    "title": "Name of your Team representatiove",
+                    "type": "string"
+                  }                        
+               }               
+            }            
+        }
+    }
+}</task-model>
+    </cafienne:implementation>
+</humantask>

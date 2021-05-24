@@ -1,0 +1,6 @@
+<caseFileItemDefinition name="team" definitionType="http://www.omg.org/spec/CMMN/DefinitionType/Unspecified">
+    <property name="teamName" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+    <property name="teamId" type="http://www.omg.org/spec/CMMN/PropertyType/integer"/>
+    <property name="membersInTeam" type="http://www.omg.org/spec/CMMN/PropertyType/integer"/>
+    <property name="teamHeadName" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+</caseFileItemDefinition>

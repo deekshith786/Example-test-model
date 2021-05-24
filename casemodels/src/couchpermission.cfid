@@ -1,0 +1,4 @@
+<caseFileItemDefinition name="couchpermission" definitionType="http://www.omg.org/spec/CMMN/DefinitionType/Unspecified">
+    <property name="couchApproval" type="http://www.omg.org/spec/CMMN/PropertyType/boolean"/>
+    <property name="couchComments" type="http://www.omg.org/spec/CMMN/PropertyType/string"/>
+</caseFileItemDefinition>
