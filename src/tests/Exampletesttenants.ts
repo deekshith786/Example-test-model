@@ -8,11 +8,13 @@ const platformService = new PlatformService();
 /**
  * Simple test tenant to avoid duplicate code
  */
-export default class AmsterdamTestTenant {
-    requestor = new TenantUser('request-user', ['Requestor'], 'requestor', 'requestor@amd.com');
-    principal = new TenantOwner('manager', ['Manager'], 'manager', 'manager@amd.com')
-    employee = new TenantUser('employee', ['Employee'], 'employee', 'employee@amd.com');
-    tenant: Tenant = new Tenant(this.name, [this.requestor, this.principal, this.employee]);
+export default class ExampleTestTenant {
+    coach = new TenantUser('coach', ['Coach'], 'coach', 'coach@college.com');
+    principal = new TenantOwner('principal', ['Principal'], 'principal', 'principal@college.com');
+    manager = new TenantUser('manager', ['manager'], 'manager', 'manager@college.com');
+    designer = new TenantUser('designer', ['designer'], 'designer', 'designer@college.com');
+    hod = new TenantUser('Hod', ['HOD'], 'Hod', 'Hod@college.com');
+    tenant: Tenant = new Tenant(this.name, [this.coach, this.principal, this.hod, this.designer, this.manager ]);
 
     constructor(public readonly name: string = 'Example-Test-Tenant', public platformAdmin: User = new User('admin')) {
 
@@ -24,8 +26,11 @@ export default class AmsterdamTestTenant {
     async create() {
         await this.platformAdmin.login();
         await platformService.createTenant(this.platformAdmin, this.tenant);
-        await this.requestor.login();
+        await this.coach.login();
         await this.principal.login();
-        await this.employee.login();
+        await this.hod.login();
+        await this.manager.login();
+        await this.designer.login();
+
     }
 }
